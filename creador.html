@@ -1,0 +1,219 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creador</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            background-image: url('gif.gif'); /* Agregar gif de fondo */
+            background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita repetir la imagen */
+            background-blend-mode: overlay; /* Modo de mezcla para suavizar la imagen */
+            background-attachment: fixed; /* Fija la imagen de fondo */
+            opacity: 0.9; /* Reducir ligeramente la opacidad para evitar que el fondo sea demasiado llamativo */
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            margin-right: 30px;
+        }
+        .logo img {
+            max-height: 80px; /* Aumentamos el tamaño del logo */
+        }
+        .menu-toggle {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            margin-left: auto;
+            position: relative;
+            z-index: 10; /* Asegurar que el botón esté encima */
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+        }
+        .menu-icon {
+            display: inline-block;
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .menu-icon::before,
+        .menu-icon::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            position: absolute;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+        .menu-icon::before {
+            top: -8px;
+        }
+        .menu-icon::after {
+            bottom: -8px;
+        }
+        .menu-toggle:hover .menu-icon {
+            background-color: #1abc9c;
+        }
+        .menu-toggle:hover .menu-icon::before,
+        .menu-toggle:hover .menu-icon::after {
+            background-color: #1abc9c;
+        }
+        .menu-toggle.active .menu-icon {
+            background-color: transparent;
+        }
+        .menu-toggle.active .menu-icon::before {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+        .menu-toggle.active .menu-icon::after {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        .hidden {
+            display: none;
+        }
+        .visible {
+            display: flex;
+            justify-content: space-around;
+        }
+        nav {
+            flex-grow: 1;
+            text-align: right;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #1abc9c;
+        }
+        .container {
+            margin: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in-out; /* Animación al cargar el contenedor */
+        }
+        h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            animation: slideIn 1.5s ease-in-out; /* Animación para el título */
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+            animation: fadeIn 2s ease-in-out; /* Animación para el párrafo */
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2.5s ease-in-out; /* Animación para las imágenes */
+        }
+        video {
+            width: 100%;
+            margin-top: 20px;
+            animation: fadeIn 3s ease-in-out; /* Animación para el reproductor de video */
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: 50px;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="prepa.png" alt="Logo">
+        </div>
+        <button id="menuToggle" class="menu-toggle">
+            <span class="menu-icon"></span>
+        </button>
+        <nav id="menu" class="hidden">
+            <a href="index.html">Inicio</a>
+            <a href="profesor.html">Profesor</a>
+            <a href="proyecto.html">Proyecto</a> <!-- Nueva opción -->
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Información de los Creadores</h1>
+        <h2>Acerca de los Creadores</h2>
+        <p>Hola, soy Johan Matejan Mojica Zaldivar, el creador de esta página web. Me apasiona el desarrollo web y disfruto creando proyectos que combinen diseño y funcionalidad. Además de programar, me gusta aprender sobre nuevas tecnologías y compartir mis conocimientos con otros. Mis demás compañeros de equipo que me ayudaron a crear la página brindándome información de la maestra Norma Cruz Balmaceda, mis compañeros son: González Velázquez Diego, Martínez Cruz Edwin Abraham, Pérez Quintana Jesús David y Fragoso Guevara Bruno Gael.</p>
+        <h2>Foto de Creadores</h2>
+        <img src="creadores.jpg" alt="Foto del Creador 1">
+        <h2>Foto con la maestra </h2>
+        <img src="Maestra.jpg" alt="Foto del Creador 2">
+        <h2>Video de la Entrevista</h2>
+        <video controls>
+            <source src="EPO 115 ENTREVISTA A ORIENTADORA NORMA CRUZ BALMACEDA.mp4" type="video/mp4">
+            Tu navegador no soporta el reproductor de video.
+        </video>
+    </div>
+    <footer>
+        &copy; 2025 Todos los derechos reservados.
+    </footer>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const menu = document.getElementById('menu');
+            const toggleButton = document.getElementById('menuToggle');
+            if (menu.classList.contains('visible')) {
+                menu.classList.remove('visible');
+                toggleButton.classList.remove('active');
+            } else {
+                menu.classList.add('visible');
+                toggleButton.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
